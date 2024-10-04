@@ -43,7 +43,8 @@ var depositsettings = new ApolloPayDepositSettings(
     apiKey,
     orderNo,
     "QRIS",
-    null);
+    null,
+    1m);
 
 var depositreturn = await paymentClient.DepositAsync(
     "tgs.payment.apollopay.deposit",

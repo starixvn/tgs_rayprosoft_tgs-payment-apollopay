@@ -49,7 +49,8 @@ public class DepositProcessorTests
             apiKey,
             formId,
             "QRIS",
-            null);
+            null,
+            1m);
 
         var request = new DepositRequest
         {

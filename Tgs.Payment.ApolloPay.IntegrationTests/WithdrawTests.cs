@@ -38,7 +38,8 @@ public class WithdrawTests(ITestOutputHelper testOutputHelper)
             "Payout",
             "BCA_ID",
             "11111111111111",
-            "testAccountName");
+            "testAccountName",
+            1m);
         var withdrawResponse = new ApolloPayWithdrawResponse(formId, "20241001161715629369233");
 
         var applyInfo = new ApolloPayWithdrawApplyInfo(settings, withdrawResponse);
@@ -114,7 +115,8 @@ public class WithdrawTests(ITestOutputHelper testOutputHelper)
             "Payout",
             "BCA_ID",
             "11111111111111",
-            "testAccountName");
+            "testAccountName",
+            1m);
         var withdrawResponse = new ApolloPayWithdrawResponse(formId, "20241001161715629369233");
 
         var applyInfo = new ApolloPayWithdrawApplyInfo(settings, withdrawResponse);

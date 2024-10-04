@@ -51,7 +51,8 @@ public class DepositTests(ITestOutputHelper testOutputHelper)
                 apiKey,
                 formId,
                 "QRIS",
-                null),
+                null,
+                1m),
              new ApolloPayDepositResponse(
                 100000m,
                 formId,

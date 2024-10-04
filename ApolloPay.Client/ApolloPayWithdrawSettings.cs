@@ -1,4 +1,6 @@
-﻿namespace Tgs.Payment.ApolloPay.Client;
+﻿using System.ComponentModel;
+
+namespace Tgs.Payment.ApolloPay.Client;
 public record ApolloPayWithdrawSettings(
     string MerchantNo,
     string ApiKey,
@@ -6,4 +8,6 @@ public record ApolloPayWithdrawSettings(
     string ChannelType,
     string BankCode,
     string BankCardNo,
-    string AccountName);
+    string AccountName,
+    [property: Description("匯率轉換")]
+    decimal ExchangeRate);

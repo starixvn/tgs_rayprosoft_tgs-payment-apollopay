@@ -47,12 +47,15 @@ public class DepositController(ILogger<DepositController> logger) : ControllerBa
             return "fail";
         }
 
+        var exchangeRate = depositForm.ApplyInfo.Settings.ExchangeRate;
+
         var paymentReturn = new ApolloPayDepositReturn()
         {
             OrderAmount = decimal.Parse(source.TopupAmount),
             FormId = formId,
             Status = source.TradeStatus.ToString(),
             Sign = source.Sign,
+            AfterExchangeOrderAmount = decimal.Parse(source.TopupAmount) / exchangeRate,
         };
 
         var fsm = PaymentStateMachineFactory.CreateDepositStateMachine(depositForm.Status);
@@ -72,7 +75,7 @@ public class DepositController(ILogger<DepositController> logger) : ControllerBa
                     await paymentClient.ApproveDepositAsync(
                         depositForm.Id,
                         depositForm.BrandId,
-                        paymentReturn.OrderAmount,
+                        paymentReturn.AfterExchangeOrderAmount,
                         HttpContext.RequestAborted).ConfigureAwait(false);
                 }
 

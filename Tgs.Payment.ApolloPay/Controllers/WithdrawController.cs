@@ -55,6 +55,7 @@ public class WithdrawController(ILogger<WithdrawController> logger) : Controller
             OrderAmount = decimal.Parse(source.OrderAmount),
             Sign = sign,
             Status = source.TradeStatus.ToString(),
+            AfterExchangeOrderAmount = decimal.Parse(source.OrderAmount) / withdrawForm.ApplyInfo.Settings.ExchangeRate,
         };
 
         var fsm = PaymentStateMachineFactory.CreateWithdrawStateMachine(withdrawForm.Status);

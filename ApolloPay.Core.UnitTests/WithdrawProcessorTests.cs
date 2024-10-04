@@ -53,7 +53,8 @@ public class WithdrawProcessorTests
             "Payout",
             "BCA_ID",
             "11111111111111",
-            "testAccountName");
+            "testAccountName",
+            1m);
 
         var request = new WithdrawRequest
         {

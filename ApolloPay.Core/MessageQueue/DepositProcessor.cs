@@ -27,7 +27,7 @@ internal class DepositProcessor(
             ApolloPayUtility.SerializerOptions)!;
 
         var order = new DepositOrder(
-            decimal.Parse(data.Amount),
+            decimal.Parse(data.Amount) * settings.ExchangeRate,
             settings.FormId,
             new Uri($"{_options.CallbackBaseUrl}/deposit/callback"),
             settings.ChannelType,

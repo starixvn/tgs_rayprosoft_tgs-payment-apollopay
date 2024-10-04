@@ -43,12 +43,12 @@ public class WithdrawProcessorTests
             fakePaymentClient);
 
         var formId = Guid.Parse("e7c2a363-a929-4626-8d7a-d9d3771c8187");
-        var merchantId = "merchantId";
-        var merchantKey = "merchantKey";
+        var merchantNo = "merchantNo";
+        var apiKey = "apiKey";
 
         var applySettings = new ApolloPayWithdrawSettings(
-            merchantId,
-            merchantKey,
+            merchantNo,
+            apiKey,
             formId,
             "Payout",
             "BCA_ID",

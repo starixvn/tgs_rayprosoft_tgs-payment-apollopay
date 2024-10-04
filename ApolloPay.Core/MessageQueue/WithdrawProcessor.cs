@@ -27,7 +27,7 @@ internal class WithdrawProcessor(
             settings.FormId,
             decimal.Parse(data.Amount),
             new Uri($"{_options.CallbackBaseUrl}/withdraw/callback"),
-            settings.ChannelCode,
+            settings.ChannelType,
             settings.BankCode,
             settings.BankCardNo,
             settings.AccountName);

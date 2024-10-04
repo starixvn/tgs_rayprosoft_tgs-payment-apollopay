@@ -63,7 +63,7 @@ public class ApolloPayClient(
         {
             ["merNo"] = merchantNo,
             ["tradeNo"] = order.FormId.ToString(),
-            ["cType"] = order.ChannelCode,
+            ["cType"] = order.ChannelType,
             ["bankCode"] = order.BankCode,
             ["bankCardNo"] = order.BankCardNo,
             ["orderAmount"] = order.Amount.ToString("#.##"),

@@ -98,6 +98,7 @@ public class DepositController(ILogger<DepositController> logger) : ControllerBa
                         depositForm.BrandId,
                         HttpContext.RequestAborted).ConfigureAwait(false);
                 }
+
                 break;
 
             default:

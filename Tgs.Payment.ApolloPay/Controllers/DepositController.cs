@@ -81,6 +81,25 @@ public class DepositController(ILogger<DepositController> logger) : ControllerBa
 
                 break;
 
+            case "-2":
+                if (fsm.CanFire(PaymentTrigger.Reject))
+                {
+                    await fsm.FireAsync(PaymentTrigger.Reject).ConfigureAwait(false);
+
+                    await paymentServiceClient.SubmitDepositFormStatusAsync(
+                        depositForm.Id,
+                        paymentReturn: JsonSerializer.Serialize(
+                            paymentReturn,
+                            ApolloPayUtility.SerializerOptions),
+                        cancellationToken: HttpContext.RequestAborted).ConfigureAwait(false);
+
+                    await paymentClient.RejectDepositAsync(
+                        depositForm.Id,
+                        depositForm.BrandId,
+                        HttpContext.RequestAborted).ConfigureAwait(false);
+                }
+                break;
+
             default:
                 break;
         }
